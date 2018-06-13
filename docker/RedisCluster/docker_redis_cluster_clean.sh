@@ -19,4 +19,3 @@ docker rm -f redis_cluster_6386
 rm -rf cluster_6386/*
 
 rm -f redis-trib.rb
-rm -f /usr/local/bin/redis-trib.rb

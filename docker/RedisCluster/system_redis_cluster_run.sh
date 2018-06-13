@@ -118,7 +118,7 @@ chmod +x /usr/local/bin/redis-trib.rb
 gem install redis
 
 # Create Cluster (Type 'yes')
-redis-trib.rb create --replicas 1 \
+echo 'yes' | ruby redis-trib.rb create --replicas 1 \
     ${CLUSTER_01_IP}:${CLUSTER_01_PORT} \
     ${CLUSTER_02_IP}:${CLUSTER_02_PORT} \
     ${CLUSTER_03_IP}:${CLUSTER_03_PORT} \
@@ -127,6 +127,6 @@ redis-trib.rb create --replicas 1 \
     ${CLUSTER_06_IP}:${CLUSTER_06_PORT}
 
 
-redis-trib.rb check ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
+ruby redis-trib.rb check ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
 
-redis-trib.rb info ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
+ruby redis-trib.rb info ${CLUSTER_01_IP}:${CLUSTER_01_PORT}

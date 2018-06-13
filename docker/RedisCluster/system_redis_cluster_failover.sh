@@ -60,26 +60,23 @@ ps -ef | grep redis
 
 wget https://raw.githubusercontent.com/antirez/redis/unstable/src/redis-trib.rb
 
-mv redis-trib.rb /usr/local/bin/redis-trib.rb
-
-chmod +x /usr/local/bin/redis-trib.rb
 
 gem install redis
 
 # Add Node
-redis-trib.rb add-node ${CLUSTER_01_IP}:${CLUSTER_01_PORT} ${CLUSTER_IP}:${CLUSTER_PORT}
-redis-trib.rb add-node --slave ${CLUSTER_02_IP}:${CLUSTER_02_PORT} ${CLUSTER_IP}:${CLUSTER_PORT}
+ruby redis-trib.rb add-node ${CLUSTER_01_IP}:${CLUSTER_01_PORT} ${CLUSTER_IP}:${CLUSTER_PORT}
+ruby redis-trib.rb add-node --slave ${CLUSTER_02_IP}:${CLUSTER_02_PORT} ${CLUSTER_IP}:${CLUSTER_PORT}
 
 
-redis-trib.rb check ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
-redis-trib.rb info ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
+ruby redis-trib.rb check ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
+ruby redis-trib.rb info ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
 
 
 # Reshard todo
-#redis-trib.rb reshard --from 4c9bd82f --to 97ea826e --slots ${TRANS_SLOTS_NUM} --yes ${CLUSTER_IP}:${CLUSTER_PORT}
-#redis-trib.rb reshard --from ef93c5e2 --to 97ea826e --slots ${TRANS_SLOTS_NUM} --yes ${CLUSTER_IP}:${CLUSTER_PORT}
-#redis-trib.rb reshard --from 7b450c6a --to 97ea826e --slots ${TRANS_SLOTS_NUM} --yes ${CLUSTER_IP}:${CLUSTER_PORT}
+#ruby redis-trib.rb reshard --from 4c9bd82f --to 97ea826e --slots ${TRANS_SLOTS_NUM} --yes ${CLUSTER_IP}:${CLUSTER_PORT}
+#ruby redis-trib.rb reshard --from ef93c5e2 --to 97ea826e --slots ${TRANS_SLOTS_NUM} --yes ${CLUSTER_IP}:${CLUSTER_PORT}
+#ruby redis-trib.rb reshard --from 7b450c6a --to 97ea826e --slots ${TRANS_SLOTS_NUM} --yes ${CLUSTER_IP}:${CLUSTER_PORT}
 
 
-redis-trib.rb check ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
-redis-trib.rb info ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
+ruby redis-trib.rb check ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
+ruby redis-trib.rb info ${CLUSTER_01_IP}:${CLUSTER_01_PORT}

@@ -144,14 +144,10 @@ docker ps | grep redis_cluster_
 
 wget https://raw.githubusercontent.com/antirez/redis/unstable/src/redis-trib.rb
 
-mv redis-trib.rb /usr/local/bin/redis-trib.rb
-
-chmod +x /usr/local/bin/redis-trib.rb
-
 gem install redis
 
 # Create Cluster (Type 'yes')
-redis-trib.rb create --replicas 1 \
+echo 'yes' | ruby redis-trib.rb create --replicas 1 \
     ${CLUSTER_01_IP}:${CLUSTER_01_PORT} \
     ${CLUSTER_02_IP}:${CLUSTER_02_PORT} \
     ${CLUSTER_03_IP}:${CLUSTER_03_PORT} \
@@ -161,6 +157,6 @@ redis-trib.rb create --replicas 1 \
 
 # Sequence: Node-01 master、Node-02 master、Node-03 master、Node-01 slave、Node-02 slave、Node-03 slave
 
-redis-trib.rb check ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
+ruby redis-trib.rb check ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
 
-redis-trib.rb info ${CLUSTER_01_IP}:${CLUSTER_01_PORT}
+ruby redis-trib.rb info ${CLUSTER_01_IP}:${CLUSTER_01_PORT}

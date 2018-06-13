@@ -1,4 +1,4 @@
-sudo: yes
+sudo: no
 dist: trusty
 language: python
 services:
