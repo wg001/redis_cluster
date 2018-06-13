@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+*.py[cod]
+*.env
+.idea
+.DS_Store
+
+docker/RedisCluster/cluster_*/*
