@@ -82,7 +82,7 @@ EOF
 docker run \
     -h redis_cluster_${CLUSTER_01_PORT} \
     --name redis_cluster_${CLUSTER_01_PORT} \
-    --network=host \
+    --network host \
     -v ${PWD}/cluster_${CLUSTER_01_PORT}/:/data/ \
     -d \
     redis:3.2.8 \
@@ -92,7 +92,7 @@ docker run \
 docker run \
     -h redis_cluster_${CLUSTER_03_PORT} \
     --name redis_cluster_${CLUSTER_03_PORT} \
-    --network=host \
+    --network host \
     -v ${PWD}/cluster_${CLUSTER_03_PORT}/:/data/ \
     -d \
     redis:3.2.8 \
@@ -102,7 +102,7 @@ docker run \
 docker run \
     -h redis_cluster_${CLUSTER_05_PORT} \
     --name redis_cluster_${CLUSTER_05_PORT} \
-    --network=host \
+    --network host \
     -v ${PWD}/cluster_${CLUSTER_05_PORT}/:/data/ \
     -d \
     redis:3.2.8 \
@@ -112,7 +112,7 @@ docker run \
 docker run \
     -h redis_cluster_${CLUSTER_02_PORT} \
     --name redis_cluster_${CLUSTER_02_PORT} \
-    --network=host \
+    --network host \
     -v ${PWD}/cluster_${CLUSTER_02_PORT}/:/data/ \
     -d \
     redis:3.2.8 \
@@ -122,7 +122,7 @@ docker run \
 docker run \
     -h redis_cluster_${CLUSTER_04_PORT} \
     --name redis_cluster_${CLUSTER_04_PORT} \
-    --network=host \
+    --network host \
     -v ${PWD}/cluster_${CLUSTER_04_PORT}/:/data/ \
     -d \
     redis:3.2.8 \
@@ -132,7 +132,7 @@ docker run \
 docker run \
     -h redis_cluster_${CLUSTER_06_PORT} \
     --name redis_cluster_${CLUSTER_06_PORT} \
-    --network=host \
+    --network host \
     -v ${PWD}/cluster_${CLUSTER_06_PORT}/:/data/ \
     -d \
     redis:3.2.8 \

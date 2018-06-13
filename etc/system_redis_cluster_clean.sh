@@ -2,11 +2,6 @@
 
 ps -ef | grep redis-server | awk '{print $2}' | xargs kill
 
-rm -rf cluster_6381/*
-rm -rf cluster_6382/*
-rm -rf cluster_6383/*
-rm -rf cluster_6384/*
-rm -rf cluster_6385/*
-rm -rf cluster_6386/*
+echo 'yes' | rm -rf cluster_*
 
 rm -f redis-trib.rb

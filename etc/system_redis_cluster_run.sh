@@ -111,10 +111,6 @@ ps -ef | grep redis
 
 wget https://raw.githubusercontent.com/antirez/redis/unstable/src/redis-trib.rb
 
-mv redis-trib.rb /usr/local/bin/redis-trib.rb
-
-chmod +x /usr/local/bin/redis-trib.rb
-
 gem install redis
 
 # Create Cluster (Type 'yes')
