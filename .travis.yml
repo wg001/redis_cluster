@@ -1,0 +1,23 @@
+sudo: no
+dist: trusty
+language: python
+services:
+  - docker
+python:
+  - "2.7"
+  - "3.6"
+before_install:
+  - sh docker/RedisCluster/docker_redis_cluster_run.sh
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+  - pip install coveralls
+  - pip install pyyaml
+# command to run tests
+script:
+  - cd tests
+  # Copy the coveragerc down so coverage.py can find it.
+  - coverage run --source='.' test_redis_cluster.py
+  - coverage report
+after_success:
+  - coveralls

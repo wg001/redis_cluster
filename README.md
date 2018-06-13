@@ -1,13 +1,14 @@
 ## 集群部署
 
-1. 故障恢复
-2. 数据同步
+[![Build Status](https://travis-ci.org/zhanghe06/redis_cluster.svg?branch=master)](https://travis-ci.org/zhanghe06/redis_cluster)
+[![Coverage Status](https://coveralls.io/repos/github/zhanghe06/redis_cluster/badge.svg?branch=master)](https://coveralls.io/github/zhanghe06/redis_cluster?branch=master)
 
 
-基本概念
 
 - 哈希槽 总共16384个
-
+- 单节点主失效, 对应从提升为主, 对应哈希槽分配过去
+- 同一节点主从同时挂掉, 整个集群不可用, 应避免同一主从节点部署在一个物理节点
+- docker 模拟需要`--net=host`模式, Mac不支持
 
 https://github.com/Grokzen/redis-py-cluster
 
@@ -16,7 +17,10 @@ https://github.com/Grokzen/docker-redis-cluster
 
 集群客户端
 ```
-pip install redis-py-cluster
+# pip install virtualenv
+# virtualenv redis_cluster.env
+# source redis_cluster.env/bin/activate
+# pip install redis-py-cluster
 ```
 
 集群命令

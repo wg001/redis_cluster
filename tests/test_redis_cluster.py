@@ -8,25 +8,47 @@
 @time: 2018-06-11 17:15
 """
 
+from __future__ import unicode_literals
+
+import unittest
 
 from rediscluster import StrictRedisCluster
 
-redis_nodes = [
-    {'host': '127.0.0.1', 'port': '6381'},
-    {'host': '127.0.0.1', 'port': '6382'},
-    {'host': '127.0.0.1', 'port': '6383'},
-    {'host': '127.0.0.1', 'port': '6384'},
-    {'host': '127.0.0.1', 'port': '6385'},
-    {'host': '127.0.0.1', 'port': '6386'},
-]
 
-rc = StrictRedisCluster(startup_nodes=redis_nodes, decode_responses=True)
-rc.set("foo", "bar")
-print(rc.get("foo"))
+class RedisClusterTest(unittest.TestCase):
+    """
+    集群测试
+    """
+
+    def setUp(self):
+        self.redis_nodes = [
+            {'host': '127.0.0.1', 'port': '6381'},
+            {'host': '127.0.0.1', 'port': '6382'},
+            {'host': '127.0.0.1', 'port': '6383'},
+            {'host': '127.0.0.1', 'port': '6384'},
+            {'host': '127.0.0.1', 'port': '6385'},
+            {'host': '127.0.0.1', 'port': '6386'},
+        ]
+        self.rc = StrictRedisCluster(startup_nodes=self.redis_nodes, decode_responses=True)
+
+    def test_cluster(self):
+        """
+        测试集群操作
+        :return:
+        """
+
+        value = 'bar'
+        self.rc.set('foo', value)
+        result = self.rc.get('foo')
+
+        self.assertEqual(value, result)
+
+    def tearDown(self):
+        pass
 
 
 if __name__ == '__main__':
-    pass
+    unittest.main()
 
 """
 ➜  ~ redis-cli -p 6386

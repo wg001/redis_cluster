@@ -5,4 +5,8 @@
 .idea
 .DS_Store
 
+.coverage
+htmlcov/
+.coveralls.yml
+
 docker/RedisCluster/cluster_*/*

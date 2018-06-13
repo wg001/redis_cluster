@@ -25,6 +25,19 @@
 # pip -V
 ```
 
+修改 pip 源配置
+```
+# mkdir ~/.pip
+# tee ~/.pip/pip.conf <<-'EOF'
+[global]
+index-url = http://mirrors.aliyun.com/pypi/simple/
+
+[install]
+trusted-host=mirrors.aliyun.com
+EOF
+```
+
+
 补充常用的工具（wget, vim）
 ```
 # yum install -y wget vim-enhanced
