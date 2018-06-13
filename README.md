@@ -1,4 +1,4 @@
-## 集群部署
+## Redis Cluster
 
 [![Build Status](https://travis-ci.org/zhanghe06/redis_cluster.svg?branch=master)](https://travis-ci.org/zhanghe06/redis_cluster)
 [![Coverage Status](https://coveralls.io/repos/github/zhanghe06/redis_cluster/badge.svg?branch=master)](https://coveralls.io/github/zhanghe06/redis_cluster?branch=master)
@@ -22,6 +22,19 @@ https://github.com/Grokzen/docker-redis-cluster
 # source redis_cluster.env/bin/activate
 # pip install redis-py-cluster
 ```
+
+集群部署
+
+1. docker 模式
+```
+# sh docker/RedisCluster/docker_redis_cluster_run.sh
+```
+
+2. 普通模式
+```
+# sh etc/system_redis_cluster_run.sh
+```
+
 
 集群命令
 ```
