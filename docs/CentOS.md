@@ -1,6 +1,6 @@
-## CentOS 最小化安装的基本配置
+# CentOS Server 7.3
 
-启用网卡
+启用网卡(默认未开启)
 ```
 # ip addr
 # cat /etc/sysconfig/network-scripts/ifcfg-ens33
@@ -43,6 +43,25 @@ EOF
 # yum install -y wget vim-enhanced
 ```
 
+
+更新源(官方源速度貌似还行，看着办吧)
+```
+# mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+```
+
+安装 Linux Standard Base（可选）
+```
+# yum install -y redhat-lsb
+# lsb_release -a
+LSB Version:	:core-4.1-amd64:core-4.1-noarch:cxx-4.1-amd64:cxx-4.1-noarch:desktop-4.1-amd64:desktop-4.1-noarch:languages-4.1-amd64:languages-4.1-noarch:printing-4.1-amd64:printing-4.1-noarch
+Distributor ID:	CentOS
+Description:	CentOS Linux release 7.3.1611 (Core)
+Release:	7.3.1611
+Codename:	Core
+```
+
+
 安装docker
 
 https://docs.docker.com/install/linux/docker-ce/centos/
@@ -60,6 +79,8 @@ https://docs.docker.com/install/linux/docker-ce/centos/
 ```
 
 默认安装版本太低（废弃）
+
+redis requires Ruby version >= 2.2.2.
 ```
 # yum install -y redis
 # redis-server -v

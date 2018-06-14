@@ -86,23 +86,32 @@ EOF
 ROOT_DIR=${PWD}
 
 
+# cat /etc/group | grep redis
+# cat /etc/shadow | grep redis
+
+# groupadd redis
+# useradd -r -g redis -s /bin/false redis
+
+# chown -R redis:redis ./
+
+
 cd ${ROOT_DIR}/cluster_${CLUSTER_01_PORT}
-redis-server redis.conf
+sudo -u redis redis-server redis.conf
 
 cd ${ROOT_DIR}/cluster_${CLUSTER_02_PORT}
-redis-server redis.conf
+sudo -u redis redis-server redis.conf
 
 cd ${ROOT_DIR}/cluster_${CLUSTER_03_PORT}
-redis-server redis.conf
+sudo -u redis redis-server redis.conf
 
 cd ${ROOT_DIR}/cluster_${CLUSTER_04_PORT}
-redis-server redis.conf
+sudo -u redis redis-server redis.conf
 
 cd ${ROOT_DIR}/cluster_${CLUSTER_05_PORT}
-redis-server redis.conf
+sudo -u redis redis-server redis.conf
 
 cd ${ROOT_DIR}/cluster_${CLUSTER_06_PORT}
-redis-server redis.conf
+sudo -u redis redis-server redis.conf
 
 
 # Check node status
