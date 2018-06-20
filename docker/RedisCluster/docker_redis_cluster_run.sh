@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# 部署时替换为内网IP
 CLUSTER_01_IP='0.0.0.0'
 CLUSTER_02_IP='0.0.0.0'
 CLUSTER_03_IP='0.0.0.0'

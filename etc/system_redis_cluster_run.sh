@@ -121,6 +121,10 @@ ps -ef | grep redis
 wget https://raw.githubusercontent.com/antirez/redis/unstable/src/redis-trib.rb
 
 gem install redis
+# offline
+# wget https://rubygems.org/downloads/redis-4.0.1.gem
+# gem install -l redis-4.0.1.gem
+
 
 # Create Cluster (Type 'yes')
 echo 'yes' | ruby redis-trib.rb create --replicas 1 \
